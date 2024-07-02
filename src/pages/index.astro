@@ -9,12 +9,12 @@ const currentYear = new Date().getFullYear();
   <main>
     <a
       href="#0"
-      class="mx-16 my-8 inline-flex flex-row gap-2 font-semibold hover:font-black transition-all"
+      class="mx-2 md:mx-6 lg:mx-12 xl:mx-16 my-8 inline-flex flex-row gap-2 font-semibold hover:font-black transition-all"
     >
       <Icon name="logo" class="w-8 h-auto" />
       <span class="text-sm py-1">travishall.design</span>
     </a>
-    <section class="p-16 my-8">
+    <section class="p-2 md:p-6 lg:p-12 xl:p-16 my-8">
       <h1
         class="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-balance"
       >
@@ -23,7 +23,7 @@ const currentYear = new Date().getFullYear();
         <!-- Design & Development work by Travis Hall -->
       </h1>
     </section>
-    <section class="p-16 my-8">
+    <section class="p-2 md:p-6 lg:p-12 xl:p-16 my-8">
       <nav class="project-navigation">
         <ul class="project-list">
           <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
@@ -135,9 +135,9 @@ const currentYear = new Date().getFullYear();
       </nav>
     </section>
     <footer
-      class="site-footer p-16 mt-8 flex flex-col items-center md:flex-row md:justify-between"
+      class="site-footer p-2 md:p-6 lg:p-12 xl:p-16 mt-8 flex flex-col lg:items-center lg:flex-row md:justify-between"
     >
-      <ul class="footer-utilities flex md:flex-row gap-4 xl:gap-8">
+      <ul class="footer-utilities flex flex-col lg:flex-row gap-4 xl:gap-8">
         <li class="footer-utility-item p-2">
           <a
             href="#0"
@@ -169,7 +169,7 @@ const currentYear = new Date().getFullYear();
           <ThemeToggle />
         </li>
       </ul>
-      <small class="text-xs"
+      <small class="text-xs my-8 lg:my-0"
         >&copy;{currentYear} Travis Hall Design, all rights reserved</small
       >
     </footer>
