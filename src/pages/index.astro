@@ -1,59 +1,178 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import ThemeToggle from "../components/ThemeToggle.astro";
+const currentYear = new Date().getFullYear();
 ---
 
 <Layout title="Welcome to Travis Hall dot Design.">
   <main>
-    <Icon name="Logo" />
-    <section class="p-16">
+    <a
+      href="#0"
+      class="mx-16 my-8 inline-flex flex-row gap-2 font-semibold hover:font-black transition-all"
+    >
+      <Icon name="logo" class="w-8 h-auto" />
+      <span class="text-sm py-1">travishall.design</span>
+    </a>
+    <section class="p-16 my-8">
       <h1
-        class="font-heading font-regular text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-balance"
+        class="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-balance"
       >
-        Selected works by Product Designer & Developer, Travis Hall.
+        <!-- Online portfolio of Product Designer & Developer, Travis Hall. -->
+        Selected work by Product Designer & Developer, Travis Hall.
+        <!-- Design & Development work by Travis Hall -->
       </h1>
     </section>
-    <!-- <section class="p-8">
-      <h1
-        class="font-heading font-medium text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-12"
+    <section class="p-16 my-8">
+      <nav class="project-navigation">
+        <ul class="project-list">
+          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
+            <div
+              class="project-label flex flex-col md:flex-row justify-between items-end"
+            >
+              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+                <span class="text-sm">01</span>
+                Project Label
+              </h2>
+              <div class="project-types p-4">
+                <a href="#0" class="tag p-2">Site Design</a>
+                <a href="#0" class="tag p-2">Front End Development</a>
+              </div>
+            </div>
+            <div class="project-showcase"></div>
+          </li>
+          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
+            <div
+              class="project-label flex flex-col md:flex-row justify-between items-end"
+            >
+              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+                <span class="text-sm">01</span>
+                Project Label
+              </h2>
+              <div class="project-types p-4">
+                <a href="#0" class="tag p-2">Site Design</a>
+                <a href="#0" class="tag p-2">Front End Development</a>
+              </div>
+            </div>
+            <div class="project-showcase"></div>
+          </li>
+          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
+            <div
+              class="project-label flex flex-col md:flex-row justify-between items-end"
+            >
+              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+                <span class="text-sm">01</span>
+                Project Label
+              </h2>
+              <div class="project-types p-4">
+                <a href="#0" class="tag p-2">Site Design</a>
+                <a href="#0" class="tag p-2">Front End Development</a>
+              </div>
+            </div>
+            <div class="project-showcase"></div>
+          </li>
+          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
+            <div
+              class="project-label flex flex-col md:flex-row justify-between items-end"
+            >
+              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+                <span class="text-sm">01</span>
+                Project Label
+              </h2>
+              <div class="project-types p-4">
+                <a href="#0" class="tag p-2">Site Design</a>
+                <a href="#0" class="tag p-2">Front End Development</a>
+              </div>
+            </div>
+            <div class="project-showcase"></div>
+          </li>
+          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
+            <div
+              class="project-label flex flex-col md:flex-row justify-between items-end"
+            >
+              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+                <span class="text-sm">01</span>
+                Project Label
+              </h2>
+              <div class="project-types p-4">
+                <a href="#0" class="tag p-2">Site Design</a>
+                <a href="#0" class="tag p-2">Front End Development</a>
+              </div>
+            </div>
+            <div class="project-showcase"></div>
+          </li>
+          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
+            <div
+              class="project-label flex flex-col md:flex-row justify-between items-end"
+            >
+              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+                <span class="text-sm">01</span>
+                Project Label
+              </h2>
+              <div class="project-types p-4">
+                <a href="#0" class="tag p-2">Site Design</a>
+                <a href="#0" class="tag p-2">Front End Development</a>
+              </div>
+            </div>
+            <div class="project-showcase"></div>
+          </li>
+          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
+            <div
+              class="project-label flex flex-col md:flex-row justify-between items-end"
+            >
+              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+                <span class="text-sm">01</span>
+                Project Label
+              </h2>
+              <div class="project-types p-4">
+                <a href="#0" class="tag p-2">Site Design</a>
+                <a href="#0" class="tag p-2">Front End Development</a>
+              </div>
+            </div>
+            <div class="project-showcase"></div>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <footer
+      class="site-footer p-16 mt-8 flex flex-col items-center md:flex-row md:justify-between"
+    >
+      <ul class="footer-utilities flex md:flex-row gap-4 xl:gap-8">
+        <li class="footer-utility-item p-2">
+          <a
+            href="#0"
+            class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase"
+          >
+            <Icon name="linkedin" class="h-5 w-5" />
+            LinkedIn
+          </a>
+        </li>
+        <li class="footer-utility-item p-2">
+          <a
+            href="#0"
+            class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase"
+          >
+            <Icon name="instagram" class="h-5 w-5" />
+            Instagram
+          </a>
+        </li>
+        <li class="footer-utility-item p-2">
+          <a
+            href="#0"
+            class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase"
+          >
+            <Icon name="mailbox" class="h-5 w-5" />
+            hello@travishall.design
+          </a>
+        </li>
+        <li>
+          <ThemeToggle />
+        </li>
+      </ul>
+      <small class="text-xs"
+        >&copy;{currentYear} Travis Hall Design, all rights reserved</small
       >
-        Typography
-      </h1>
-      <h1
-        class="font-heading font-black text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-4"
-      >
-        Heading Level One: 5xl - 9xl Text
-      </h1>
-      <h2
-        class="font-heading font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-4"
-      >
-        Heading Level Two: 4xl - 8xl Text
-      </h2>
-      <h3
-        class="font-heading font-black text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mb-4"
-      >
-        Heading Level Three: 3xl - 7xl Text
-      </h3>
-      <h4
-        class="font-heading font-black text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl mb-4"
-      >
-        Heading Level Four: 2xl - 6xl Text
-      </h4>
-      <h5
-        class="font-heading font-black text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl mb-4"
-      >
-        Heading Level Five: xl - 5xl Text
-      </h5>
-      <h6
-        class="font-heading font-black text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-4"
-      >
-        Heading Level Six: lg - 4xl Text
-      </h6>
-      <p class="text-base mb-4">
-        Paragraph text. Etiam porta sem malesuada magna mollis euismod. Morbi
-        leo risus, porta ac consectetur ac, vestibulum at eros.
-      </p>
-    </section> -->
+    </footer>
   </main>
 </Layout>
 
