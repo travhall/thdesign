@@ -1,36 +1,53 @@
 ---
 interface Project {
   title: string;
+  desc: string;
+  isPublic: boolean;
   tags?: string[];
+  url?: string;
 }
 
 const projects: Project[] = [
   {
     title: "Project Wylie Dog",
+    desc: "",
+    isPublic: true,
     tags: ["Design System", "Front End Development", "Hobby Project"],
   },
   {
     title: "El Camino Skate Shop",
+    desc: "",
+    isPublic: true,
     tags: ["Branding", "Site Design", "Front End Development"],
   },
   {
     title: "Moxie Beauty Studio",
+    desc: "",
+    isPublic: true,
     tags: ["Site Design", "Front End Development"],
   },
   {
     title: "Buddyhead",
+    desc: "",
+    isPublic: true,
     tags: ["Site Design", "Front End Development"],
   },
   {
     title: "Denver Digital Agency",
+    desc: "",
+    isPublic: true,
     tags: ["UX Design", "Site Design"],
   },
   {
     title: "Reflex Design System",
+    desc: "",
+    isPublic: true,
     tags: ["Design Lead"],
   },
   {
     title: "Past Work Showcase",
+    desc: "",
+    isPublic: true,
     tags: ["Various Roles"],
   },
 ];
@@ -45,17 +62,20 @@ const projects: Project[] = [
           id={project.title}
           data-index={index}
         >
-          <div class="project-label flex flex-col md:flex-row justify-between lg:items-end">
+          <div class="project-label flex flex-col md:flex-row md:justify-between md:items-end">
             <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-              <!-- <span class="text-sm">{(index + 1).toPrecision(2)}</span> -->
-              <!-- <span class="text-sm">{index.toFixed(2)}</span> -->
               <span class="text-sm">{"0" + (index + 1)}</span>
-              {project.title}
+              {project.isPublic ? (
+                <a href="#0" class="hover:font-extrabold transition-all">{project.title}</a>
+              ) : (
+                <span class="opacity-50">{project.title}</span>
+                <span class="text-sm italic">Coming Soon</span>
+              )}
             </h2>
             {project.tags && (
-              <div class="project-types p-4">
+              <div class="project-types ms-2 px-4 md:p-4">
                 {project.tags.map((tag) => (
-                  <span class="tag p-2">{tag}</span>
+                  <span class="tag p-2 text-xs lg:text-sm">{tag}</span>
                 ))}
               </div>
             )}

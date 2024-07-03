@@ -1,20 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import SiteHeader from "../components/SiteHeader.astro";
 import ProjectNav from "../components/ProjectNav.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 const headline = "Selected work by Product Designer & Developer, Travis Hall.";
 ---
 
-<Layout title="Welcome to Travis Hall dot Design.">
+<Layout title={`Welcome to Travis Hall dot Design. ${headline}`}>
   <main>
-    <a
-      href="#0"
-      class="mx-2 md:mx-6 lg:mx-12 xl:mx-16 my-8 inline-flex flex-row gap-2 font-semibold hover:font-black transition-all"
-    >
-      <Icon name="logo" class="w-8 h-auto" />
-      <span class="text-sm py-1">travishall.design</span>
-    </a>
+    <SiteHeader />
     <h1
       class="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-2 md:p-6 lg:p-12 xl:p-16 my-8"
     >
