@@ -47,7 +47,9 @@ const projects: Project[] = [
         >
           <div class="project-label flex flex-col md:flex-row justify-between lg:items-end">
             <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-              <span class="text-sm">{(index + 1).valueOf()}</span>
+              <!-- <span class="text-sm">{(index + 1).toPrecision(2)}</span> -->
+              <!-- <span class="text-sm">{index.toFixed(2)}</span> -->
+              <span class="text-sm">{"0" + (index + 1)}</span>
               {project.title}
             </h2>
             {project.tags && (
