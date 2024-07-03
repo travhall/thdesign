@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-import ThemeToggle from "../components/ThemeToggle.astro";
-const currentYear = new Date().getFullYear();
+import ProjectNav from "../components/ProjectNav.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+const headline = "Selected work by Product Designer & Developer, Travis Hall.";
 ---
 
 <Layout title="Welcome to Travis Hall dot Design.">
@@ -14,166 +15,14 @@ const currentYear = new Date().getFullYear();
       <Icon name="logo" class="w-8 h-auto" />
       <span class="text-sm py-1">travishall.design</span>
     </a>
-    <section class="p-2 md:p-6 lg:p-12 xl:p-16 my-8">
-      <h1
-        class="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-balance"
-      >
-        <!-- Online portfolio of Product Designer & Developer, Travis Hall. -->
-        Selected work by Product Designer & Developer, Travis Hall.
-        <!-- Design & Development work by Travis Hall -->
-      </h1>
-    </section>
-    <section class="p-2 md:p-6 lg:p-12 xl:p-16 my-8">
-      <nav class="project-navigation">
-        <ul class="project-list">
-          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
-            <div
-              class="project-label flex flex-col md:flex-row justify-between items-end"
-            >
-              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-                <span class="text-sm">01</span>
-                Project Label
-              </h2>
-              <div class="project-types p-4">
-                <a href="#0" class="tag p-2">Site Design</a>
-                <a href="#0" class="tag p-2">Front End Development</a>
-              </div>
-            </div>
-            <div class="project-showcase"></div>
-          </li>
-          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
-            <div
-              class="project-label flex flex-col md:flex-row justify-between items-end"
-            >
-              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-                <span class="text-sm">01</span>
-                Project Label
-              </h2>
-              <div class="project-types p-4">
-                <a href="#0" class="tag p-2">Site Design</a>
-                <a href="#0" class="tag p-2">Front End Development</a>
-              </div>
-            </div>
-            <div class="project-showcase"></div>
-          </li>
-          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
-            <div
-              class="project-label flex flex-col md:flex-row justify-between items-end"
-            >
-              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-                <span class="text-sm">01</span>
-                Project Label
-              </h2>
-              <div class="project-types p-4">
-                <a href="#0" class="tag p-2">Site Design</a>
-                <a href="#0" class="tag p-2">Front End Development</a>
-              </div>
-            </div>
-            <div class="project-showcase"></div>
-          </li>
-          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
-            <div
-              class="project-label flex flex-col md:flex-row justify-between items-end"
-            >
-              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-                <span class="text-sm">01</span>
-                Project Label
-              </h2>
-              <div class="project-types p-4">
-                <a href="#0" class="tag p-2">Site Design</a>
-                <a href="#0" class="tag p-2">Front End Development</a>
-              </div>
-            </div>
-            <div class="project-showcase"></div>
-          </li>
-          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
-            <div
-              class="project-label flex flex-col md:flex-row justify-between items-end"
-            >
-              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-                <span class="text-sm">01</span>
-                Project Label
-              </h2>
-              <div class="project-types p-4">
-                <a href="#0" class="tag p-2">Site Design</a>
-                <a href="#0" class="tag p-2">Front End Development</a>
-              </div>
-            </div>
-            <div class="project-showcase"></div>
-          </li>
-          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
-            <div
-              class="project-label flex flex-col md:flex-row justify-between items-end"
-            >
-              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-                <span class="text-sm">01</span>
-                Project Label
-              </h2>
-              <div class="project-types p-4">
-                <a href="#0" class="tag p-2">Site Design</a>
-                <a href="#0" class="tag p-2">Front End Development</a>
-              </div>
-            </div>
-            <div class="project-showcase"></div>
-          </li>
-          <li class="project-item py-4 my-4 border-b border-b-stone-950" id="">
-            <div
-              class="project-label flex flex-col md:flex-row justify-between items-end"
-            >
-              <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-                <span class="text-sm">01</span>
-                Project Label
-              </h2>
-              <div class="project-types p-4">
-                <a href="#0" class="tag p-2">Site Design</a>
-                <a href="#0" class="tag p-2">Front End Development</a>
-              </div>
-            </div>
-            <div class="project-showcase"></div>
-          </li>
-        </ul>
-      </nav>
-    </section>
-    <footer
-      class="site-footer p-2 md:p-6 lg:p-12 xl:p-16 mt-8 flex flex-col lg:items-center lg:flex-row md:justify-between"
+    <h1
+      class="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-2 md:p-6 lg:p-12 xl:p-16 my-8"
     >
-      <ul class="footer-utilities flex flex-col lg:flex-row gap-4 xl:gap-8">
-        <li class="footer-utility-item p-2">
-          <a
-            href="#0"
-            class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase"
-          >
-            <Icon name="linkedin" class="h-5 w-5" />
-            LinkedIn
-          </a>
-        </li>
-        <li class="footer-utility-item p-2">
-          <a
-            href="#0"
-            class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase"
-          >
-            <Icon name="instagram" class="h-5 w-5" />
-            Instagram
-          </a>
-        </li>
-        <li class="footer-utility-item p-2">
-          <a
-            href="#0"
-            class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase"
-          >
-            <Icon name="mailbox" class="h-5 w-5" />
-            hello@travishall.design
-          </a>
-        </li>
-        <li>
-          <ThemeToggle />
-        </li>
-      </ul>
-      <small class="text-xs my-8 lg:my-0"
-        >&copy;{currentYear} Travis Hall Design, all rights reserved</small
-      >
-    </footer>
+      {headline}
+    </h1>
+    <ProjectNav />
   </main>
+  <SiteFooter />
 </Layout>
 
 <style></style>

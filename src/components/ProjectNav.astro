@@ -1,0 +1,65 @@
+---
+interface Project {
+  title: string;
+  tags?: string[];
+}
+
+const projects: Project[] = [
+  {
+    title: "Project Wylie Dog",
+    tags: ["Design System", "Front End Development", "Hobby Project"],
+  },
+  {
+    title: "El Camino Skate Shop",
+    tags: ["Branding", "Site Design", "Front End Development"],
+  },
+  {
+    title: "Moxie Beauty Studio",
+    tags: ["Site Design", "Front End Development"],
+  },
+  {
+    title: "Buddyhead",
+    tags: ["Site Design", "Front End Development"],
+  },
+  {
+    title: "Denver Digital Agency",
+    tags: ["UX Design", "Site Design"],
+  },
+  {
+    title: "Reflex Design System",
+    tags: ["Design Lead"],
+  },
+  {
+    title: "Past Work Showcase",
+    tags: ["Various Roles"],
+  },
+];
+---
+
+<nav class="project-navigation p-2 md:p-6 lg:p-12 xl:p-16 my-8">
+  <ul class="project-list">
+    {
+      projects.map((project, index) => (
+        <li
+          class="project-item py-4 my-4 border-b border-b-stone-950 dark:border-b-stone-50"
+          id={project.title}
+          data-index={index}
+        >
+          <div class="project-label flex flex-col md:flex-row justify-between lg:items-end">
+            <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
+              <span class="text-sm">{(index + 1).valueOf()}</span>
+              {project.title}
+            </h2>
+            {project.tags && (
+              <div class="project-types p-4">
+                {project.tags.map((tag) => (
+                  <span class="tag p-2">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,0 +1,47 @@
+---
+import ThemeToggle from "../components/ThemeToggle.astro";
+import { Icon } from "astro-icon/components";
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="site-footer p-2 md:p-6 lg:p-12 xl:p-16 mt-8 flex flex-col lg:items-center lg:flex-row md:justify-between"
+>
+  <ul
+    class="footer-utilities flex flex-col lg:flex-row gap-4 xl:gap-8 items-center"
+  >
+    <li class="footer-utility-item p-2">
+      <a
+        href="#0"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline underline-offset-2"
+      >
+        <Icon name="uil:linkedin" class="h-5 w-5" />
+        LinkedIn
+      </a>
+    </li>
+    <li class="footer-utility-item p-2">
+      <a
+        href="#0"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline underline-offset-2"
+      >
+        <Icon name="uil:instagram" class="h-5 w-5" />
+        Instagram
+      </a>
+    </li>
+    <li class="footer-utility-item p-2">
+      <a
+        href="#0"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline underline-offset-2"
+      >
+        <Icon name="uil:mailbox" class="h-5 w-5" />
+        hello@travishall.design
+      </a>
+    </li>
+    <li>
+      <ThemeToggle />
+    </li>
+  </ul>
+  <small class="text-xs my-8 lg:my-0"
+    >&copy;{currentYear} Travis Hall Design, all rights reserved</small
+  >
+</footer>
