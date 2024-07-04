@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  type?: "button" | "submit";
+  size?: "sm" | "md" | "lg";
+  classes?: string;
+  variant?: "primary" | "secondary" | "outline" | "tag";
+}
+
+const {
+  type = "button",
+  size = "md",
+  variant = "primary",
+  classes,
+  ...rest
+} = Astro.props;
+---
+
+<button
+  {type}
+  data-size={size}
+  data-variant={variant}
+  class:list={[
+    "font-sans font-semibold rounded-full hover:scale-105 transition-all ease-in-out duration-300 focus-visible:ring outline-0 focus-visible:ring-offset-2",
+    variant === "primary" &&
+      "text-white dark:text-teal-950 bg-teal-800 dark:bg-teal-50 hover:bg-teal-600 dark:hover:bg-teal-300",
+    variant === "secondary" &&
+      "text-white dark:text-amber-950 bg-amber-800 dark:bg-amber-50 hover:bg-amber-600 dark:hover:bg-amber-300",
+    variant === "outline" &&
+      "text-teal-800 dark:text-white bg-teal-50/00 dark:bg-teal-800/00 hover:bg-teal-50/50 dark:hover:bg-teal-800/50 border-2 border-teal-800 dark:border-white",
+    variant === "tag" &&
+      "text-xs p-2 text-teal-950 dark:text-white border-teal-950 dark:border-white border hover:scale-100",
+    size === "sm" && "text-xs py-2 px-4",
+    size === "md" && "text-base py-3 px-6",
+    size === "lg" && "text-xl py-4 px-8",
+    classes,
+  ]}
+  {...rest}
+>
+  <slot />
+</button>

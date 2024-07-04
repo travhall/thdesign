@@ -1,4 +1,6 @@
 ---
+import Button from "../components/Button.astro";
+
 interface Project {
   title: string;
   desc: string;
@@ -58,7 +60,7 @@ const projects: Project[] = [
     {
       projects.map((project, index) => (
         <li
-          class="project-item py-4 my-4 border-b border-b-stone-950 dark:border-b-stone-50"
+          class="project-item py-4 my-4 border-b border-b-stone-950 dark:border-b-stone-50 last-of-type:border-0 hover:font-extrabold transition-all cursor-pointer"
           id={project.title}
           data-index={index}
         >
@@ -66,16 +68,17 @@ const projects: Project[] = [
             <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
               <span class="text-sm">{"0" + (index + 1)}</span>
               {project.isPublic ? (
-                <a href="#0" class="hover:font-extrabold transition-all">{project.title}</a>
+                <a href="#0">{project.title}</a>
               ) : (
                 <span class="opacity-50">{project.title}</span>
                 <span class="text-sm italic">Coming Soon</span>
               )}
             </h2>
             {project.tags && (
-              <div class="project-types ms-2 px-4 md:p-4">
+              <div class="project-types ms-2 p-4">
                 {project.tags.map((tag) => (
-                  <span class="tag p-2 text-xs lg:text-sm">{tag}</span>
+                  <span class="tag text-xs p-2 text-teal-950 dark:text-white border-teal-950 dark:border-white border rounded-full">{tag}</span>
+                  <!-- <Button variant="tag" size="sm">{tag}</Button> -->
                 ))}
               </div>
             )}
@@ -85,3 +88,9 @@ const projects: Project[] = [
     }
   </ul>
 </nav>
+
+<style>
+  .project-list:hover .project-item:not(:hover) {
+    opacity: 0.5;
+  }
+</style>
