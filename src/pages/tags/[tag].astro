@@ -24,13 +24,19 @@ const { projects } = Astro.props as { projects: any[] };
 ---
 
 <Layout title={tag}>
-  <section class="about-me p-6 lg:p-12 xl:p-16 my-8">
-    <p>Projects tagged with {tag}</p>
+  <section class="p-6 lg:p-12 xl:p-16 my-8" id="related-tag-section">
+    <p class="mb-4 text-xl max-w-[54ch] text-balance">
+      You can find my work by the tags associated to each project. Maybe not the
+      most useful thing but it was fun to build, can you blame me? 🤷🤓
+    </p>
+    <p class="mb-8">Projects tagged with {tag}</p>
     <ul>
       {
         projects.map((project) => (
           <li>
-            <a href={project.url}>{project.frontmatter.title}</a>
+            <a href={project.url} class="font-semibold hover:underline">
+              {project.frontmatter.title}
+            </a>
           </li>
         ))
       }

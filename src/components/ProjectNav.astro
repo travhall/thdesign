@@ -1,5 +1,6 @@
 ---
 const allProjects = await Astro.glob("../pages/projects/*.mdx");
+import Button from "../components/Button.astro";
 ---
 
 <nav class="project-navigation p-2 md:p-6 lg:p-12 xl:p-16 my-8">
@@ -23,12 +24,11 @@ const allProjects = await Astro.glob("../pages/projects/*.mdx");
           {project.frontmatter.tags && (
             <span class="project-types ms-2 p-4 flex flex-row flex-wrap gap-2">
               {project.frontmatter.tags.map((tag: any) => (
-                <a
-                  href={`tags/${tag}`}
-                  class="tag text-xs p-2 text-teal-950 dark:text-white bg-white/5 dark:bg-teal-500/5 hover:bg-teal-500/10 dark:hover:bg-white/20 border-teal-950 dark:border-white border rounded-full text-nowrap inline-block hover:scale-105 transition-all"
-                >
-                  {tag}
-                </a>
+                <form action={`thdesign/tags/${tag}`}>
+                  <Button variant="tag" size="sm" type="submit">
+                    {tag}
+                  </Button>
+                </form>
               ))}
             </span>
           )}
