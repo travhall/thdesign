@@ -1,4 +1,8 @@
 ---
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
 interface Props {
   title: string;
 }
@@ -15,24 +19,29 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/thdesign/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <!-- <ViewTransitions /> -->
   </head>
-  <body>
-    <slot />
+  <body class="bg-zinc-50 dark:bg-zinc-900">
+    <SiteHeader />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
+    <style is:global>
+      @font-face {
+        font-family: "Nohemi";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url(/thdesign/fonts/Nohemi-VF.woff2) format("woff2");
+      }
+      @font-face {
+        font-family: "Manrope";
+        font-style: normal;
+        font-weight: 200 800;
+        font-display: swap;
+        src: url(/thdesign/fonts/Manrope.woff2) format("woff2");
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: "Nohemi";
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url(/thdesign/fonts/Nohemi-VF.woff2) format("woff2");
-  }
-  @font-face {
-    font-family: "Manrope";
-    font-style: normal;
-    font-weight: 200 800;
-    font-display: swap;
-    src: url(/thdesign/fonts/Manrope.woff2) format("woff2");
-  }
-</style>

@@ -1,88 +1,37 @@
 ---
-import Button from "../components/Button.astro";
-
-interface Project {
-  title: string;
-  desc: string;
-  isPublic: boolean;
-  tags?: string[];
-  url?: string;
-}
-
-const projects: Project[] = [
-  {
-    title: "Project Wylie Dog",
-    desc: "",
-    isPublic: true,
-    tags: ["Design System", "Front End Development", "Hobby Project"],
-  },
-  {
-    title: "El Camino Skate Shop",
-    desc: "",
-    isPublic: true,
-    tags: ["Branding", "Site Design", "Front End Development"],
-  },
-  {
-    title: "Moxie Beauty Studio",
-    desc: "",
-    isPublic: true,
-    tags: ["Site Design", "Front End Development"],
-  },
-  {
-    title: "Buddyhead",
-    desc: "",
-    isPublic: true,
-    tags: ["Site Design", "Front End Development"],
-  },
-  {
-    title: "Denver Digital Agency",
-    desc: "",
-    isPublic: true,
-    tags: ["UX Design", "Site Design"],
-  },
-  {
-    title: "Reflex Design System",
-    desc: "",
-    isPublic: true,
-    tags: ["Design Lead"],
-  },
-  {
-    title: "Past Work Showcase",
-    desc: "",
-    isPublic: true,
-    tags: ["Various Roles"],
-  },
-];
+const allProjects = await Astro.glob("../pages/projects/*.mdx");
 ---
 
 <nav class="project-navigation p-2 md:p-6 lg:p-12 xl:p-16 my-8">
   <ul class="project-list">
     {
-      projects.map((project, index) => (
+      allProjects.map((project, index) => (
         <li
-          class="project-item py-4 my-4 border-b border-b-stone-950 dark:border-b-stone-50 last-of-type:border-0 hover:font-extrabold transition-all cursor-pointer"
-          id={project.title}
+          class="project-item pt-8 pb-4 flex flex-col lg:flex-row lg:items-center lg:justify-between border-b border-b-stone-950 dark:border-b-stone-50 last-of-type:border-0 lg:hover:font-extrabold transition-all"
+          id={project.frontmatter.title}
           data-index={index}
         >
-          <div class="project-label flex flex-col md:flex-row md:justify-between md:items-end">
-            <h2 class="font-heading text-3xl xl:text-5xl text-balance p-2">
-              <span class="text-sm">{"0" + (index + 1)}</span>
-              {project.isPublic ? (
-                <a href="#0">{project.title}</a>
-              ) : (
-                <span class="opacity-50">{project.title}</span>
-                <span class="text-sm italic">Coming Soon</span>
-              )}
-            </h2>
-            {project.tags && (
-              <div class="project-types ms-2 p-4">
-                {project.tags.map((tag) => (
-                  <span class="tag text-xs p-2 text-teal-950 dark:text-white border-teal-950 dark:border-white border rounded-full">{tag}</span>
-                  <!-- <Button variant="tag" size="sm">{tag}</Button> -->
-                ))}
-              </div>
-            )}
-          </div>
+          <a
+            href={project.url}
+            class="project-label flex flex-row items-baseline"
+          >
+            <span class="text-sm">{"0" + (index + 1)}</span>
+            <span class="font-heading text-3xl xl:text-5xl text-balance p-2 hover:tracking-wide transition-all">
+              {project.frontmatter.title}
+            </span>
+          </a>
+          {project.frontmatter.tags && (
+            <span class="project-types ms-2 p-4 flex flex-row flex-wrap gap-2">
+              {project.frontmatter.tags.map((tag: any) => (
+                <a
+                  href={`thdesign/tags/${tag}`}
+                  class="tag text-xs p-2 text-teal-950 dark:text-white bg-white/5 dark:bg-teal-500/5 hover:bg-teal-500/10 dark:hover:bg-white/20 border-teal-950 dark:border-white border rounded-full text-nowrap inline-block hover:scale-105 transition-all"
+                >
+                  {tag}
+                </a>
+              ))}
+            </span>
+          )}
         </li>
       ))
     }

@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <h1
+    class="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-6 lg:p-12 xl:p-16 my-8"
+  >
+    {frontmatter.title}
+  </h1>
+  <section class="about-me p-6 lg:p-12 xl:p-16 my-8">
+    <p>Written by {frontmatter.author}</p>
+    <slot />
+  </section>
+</Layout>

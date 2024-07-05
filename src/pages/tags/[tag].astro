@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const allProjects: any = await Astro.glob("../projects/*.mdx");
+  const uniqueTags: any = [
+    ...new Set(
+      allProjects.map((project: any) => project.frontmatter.tags).flat()
+    ),
+  ];
+  return uniqueTags.map((tag: any) => {
+    const filteredProjects = allProjects.filter((project: any) =>
+      project.frontmatter.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { projects: filteredProjects },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { projects } = Astro.props as { projects: any[] };
+---
+
+<Layout title={tag}>
+  <section class="about-me p-6 lg:p-12 xl:p-16 my-8">
+    <p>Projects tagged with {tag}</p>
+    <ul>
+      {
+        projects.map((project) => (
+          <li>
+            <a href={project.url}>{project.frontmatter.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

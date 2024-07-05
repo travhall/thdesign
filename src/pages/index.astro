@@ -1,55 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
 import Image from "astro/components/Image.astro";
-import SiteHeader from "../components/SiteHeader.astro";
 import ProjectNav from "../components/ProjectNav.astro";
-import SiteFooter from "../components/SiteFooter.astro";
 import aboutImage from "../assets/aboutImage.png";
-import Button from "../components/Button.astro";
 const headline = "Selected work by Product Designer & Developer, Travis Hall.";
 ---
 
 <Layout title={`Welcome to Travis Hall dot Design. ${headline}`}>
-  <main>
-    <SiteHeader />
-    <h1
-      class="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-6 lg:p-12 xl:p-16 my-8"
+  <h1
+    class="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-6 lg:p-12 xl:p-16 my-8"
+  >
+    {headline}
+  </h1>
+  <ProjectNav />
+  <section class="about-me p-6 lg:p-12 xl:p-16 my-8">
+    <Image
+      src={aboutImage}
+      alt="This is me with my daughter when she was a baby. It's honestly the best I'll ever look, so why update it?"
+      loading="lazy"
+      class="object-cover rounded-full mb-12 w-56 h-56 mx-auto md:mx-8"
+    />
+    <p
+      class="max-w-[48ch] text-balance first-letter:text-5xl first-letter:font-bold first-letter:mr-1 first-letter:float-left first-line:text-lg first-line:tracking-wide"
     >
-      {headline}
-    </h1>
-    <Button>Button</Button>
-    <Button size="sm">Button</Button>
-    <Button size="lg">Button</Button>
-
-    <Button variant="secondary">Button</Button>
-    <Button variant="secondary" size="sm">Button</Button>
-    <Button variant="secondary" size="lg">Button</Button>
-
-    <Button variant="outline">Button</Button>
-    <Button variant="outline" size="sm">Button</Button>
-    <Button variant="outline" size="lg">Button</Button>
-
-    <Button variant="tag">Button</Button>
-    <Button variant="tag" size="sm">Button</Button>
-    <Button variant="tag" size="lg">Button</Button>
-    <ProjectNav />
-    <section class="about-me p-2 md:p-6 lg:p-12 xl:p-16 my-8">
-      <Image
-        src={aboutImage}
-        alt="This is me with my daughter when she was a baby. It's honestly the best I'll ever look, so why update it?"
-        loading="lazy"
-        class="object-cover rounded-full mb-8 w-56 h-56"
-      />
-      <p class="max-w-[54ch] text-balance">
-        Hi, I’m Travis and I like making stuff for the web. In other words, I
-        specialize in crafting accessible, human-centered, digital experiences.
-        However, something tells me you're not here to read a bunch of industry
-        jargon, are you?
-      </p>
-    </section>
-  </main>
-  <SiteFooter />
+      Hello, I&rsquo;m Travis and I like making stuff for the web. In other
+      words, I specialize in crafting accessible, human-centered, digital
+      experiences. However, something tells me you're not here to read a bunch
+      of industry jargon, are you?
+    </p>
+  </section>
 </Layout>
-
-<style></style>

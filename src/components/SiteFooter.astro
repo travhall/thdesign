@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from "../components/ThemeToggle.astro";
 import { Icon } from "astro-icon/components";
 const currentYear = new Date().getFullYear();
 ---
@@ -13,7 +12,7 @@ const currentYear = new Date().getFullYear();
     <li class="footer-utility-item p-2">
       <a
         href="https://www.linkedin.com/in/travhall/"
-        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline underline-offset-2"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
       >
         <Icon name="uil:linkedin" class="h-5 w-5" />
         LinkedIn
@@ -22,7 +21,7 @@ const currentYear = new Date().getFullYear();
     <li class="footer-utility-item p-2">
       <a
         href="https://www.instagram.com/trebor_hass/"
-        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline underline-offset-2"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
       >
         <Icon name="uil:instagram" class="h-5 w-5" />
         Instagram
@@ -31,17 +30,14 @@ const currentYear = new Date().getFullYear();
     <li class="footer-utility-item p-2">
       <a
         href="mailto:hello@travishall.design"
-        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline underline-offset-2"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
       >
         <Icon name="uil:mailbox" class="h-5 w-5" />
         hello@travishall.design
       </a>
     </li>
-    <li>
-      <ThemeToggle />
-    </li>
   </ul>
-  <small class="text-xs -mt-8 mb-8 lg:my-0 self-end"
+  <small class="text-xs mx-2 my-8 lg:my-0 md:self-end"
     >&copy;{currentYear} Travis Hall Design, all rights reserved</small
   >
 </footer>
