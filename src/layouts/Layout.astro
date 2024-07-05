@@ -23,7 +23,7 @@ const { title } = Astro.props;
   </head>
   <body class="bg-zinc-50 dark:bg-zinc-900">
     <SiteHeader />
-    <main>
+    <main id="main">
       <slot />
     </main>
     <SiteFooter />
@@ -41,6 +41,10 @@ const { title } = Astro.props;
         font-weight: 200 800;
         font-display: swap;
         src: url(/thdesign/fonts/Manrope.woff2) format("woff2");
+      }
+      html {
+        min-height: 100dvh;
+        scroll-behavior: smooth;
       }
     </style>
   </body>
