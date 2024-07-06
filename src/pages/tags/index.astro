@@ -9,11 +9,10 @@ const title = "All Project Tags";
 ---
 
 <Layout title={title}>
-  <section class="p-6 lg:p-12 xl:p-16 my-8" id="all-tags-section">
-    {
-      tags.map((tag) => (
-        <p class="font-heading text-teal-950 dark:text-white mb-8">{tag}</p>
-      ))
-    }
+  <section
+    class="p-6 lg:p-12 xl:p-16 my-8 text-teal-950 dark:text-white"
+    id="all-tags-section"
+  >
+    {tags.map((tag) => <p class="font-heading mb-8">{tag}</p>)}
   </section>
 </Layout>
