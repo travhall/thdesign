@@ -15,7 +15,7 @@ import Button from "../components/Button.astro";
           data-index={index}
         >
           <a
-            href={`projects/${project.slug}/`}
+            href={`/thdesign/projects/${project.slug}/`}
             class="project-label flex flex-row items-baseline"
           >
             <span class="text-sm">{"0" + (index + 1)}</span>
@@ -26,7 +26,7 @@ import Button from "../components/Button.astro";
           {project.data.tags && (
             <span class="project-types ms-2 p-4 flex flex-row flex-wrap gap-2">
               {project.data.tags.map((tag: any) => (
-                <form action={`tags/${tag}`}>
+                <form action={`/thdesign/tags/${tag}`}>
                   <Button variant="tag" size="sm" type="submit">
                     {tag}
                   </Button>
