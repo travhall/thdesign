@@ -10,7 +10,7 @@ import Button from "../components/Button.astro";
     {
       allProjects.map((project, index) => (
         <li
-          class="project-item pt-8 pb-4 flex flex-col lg:flex-row lg:items-center lg:justify-between border-b border-b-stone-950 dark:border-b-stone-50 last-of-type:border-0 lg:hover:font-extrabold transition-all"
+          class="project-item text-teal-950 dark:text-white pt-8 pb-4 flex flex-col lg:flex-row lg:items-center lg:justify-between border-b border-b-stone-950 dark:border-b-stone-50 last-of-type:border-0 lg:hover:font-extrabold transition-all"
           id={project.data.title}
           data-index={index}
         >
@@ -19,7 +19,7 @@ import Button from "../components/Button.astro";
             class="project-label flex flex-row items-baseline"
           >
             <span class="text-sm">{"0" + (index + 1)}</span>
-            <span class="font-heading text-3xl xl:text-5xl text-balance p-2 hover:tracking-wide transition-all">
+            <span class="font-heading text-teal-950 dark:text-white text-3xl xl:text-5xl text-balance p-2 hover:tracking-wide transition-all">
               {project.data.title}
             </span>
           </a>
