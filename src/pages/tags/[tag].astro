@@ -1,4 +1,5 @@
 ---
+import TagComponent from "../../components/TagComponent.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -32,14 +33,10 @@ const { projects } = Astro.props as { projects: any[] };
     <ul>
       {
         projects.map((project) => (
-          <li>
-            <a
-              href={`projects/${project.slug}/`}
-              class="font-semibold hover:underline"
-            >
-              {project.data.title}
-            </a>
-          </li>
+          <TagComponent
+            url={"../projects/" + project.slug}
+            title={project.data.title}
+          />
         ))
       }
     </ul>
