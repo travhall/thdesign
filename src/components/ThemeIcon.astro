@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components";
         typeof localStorage !== "undefined" &&
         localStorage.getItem("theme")
       ) {
-        return localStorage.getItem("theme");
+        return localStorage.getItem("theme") as string;
       }
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         return "dark";
@@ -30,7 +30,8 @@ import { Icon } from "astro-icon/components";
     localStorage.setItem("theme", theme);
 
     const handleToggleClick = () => {
-      const currentTheme = element.getAttribute("data-theme") || "light";
+      const currentTheme = (element.getAttribute("data-theme") ||
+        "light") as string;
       const newTheme = currentTheme === "dark" ? "light" : "dark";
       element.setAttribute("data-theme", newTheme);
       element.classList.toggle("dark", newTheme === "dark");
@@ -45,7 +46,7 @@ import { Icon } from "astro-icon/components";
   });
 
   document.addEventListener("astro:after-swap", () => {
-    const theme = localStorage.getItem("theme") || "light";
+    const theme = (localStorage.getItem("theme") || "light") as string;
     const element = document.documentElement;
     element.setAttribute("data-theme", theme);
     element.classList.toggle("dark", theme === "dark");
