@@ -1,16 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const allProjects: any = await Astro.glob("../projects/*.mdx");
+  const allProjects = await getCollection("projects");
   const uniqueTags: any = [
-    ...new Set(
-      allProjects.map((project: any) => project.frontmatter.tags).flat()
-    ),
+    ...new Set(allProjects.map((project: any) => project.data.tags).flat()),
   ];
   return uniqueTags.map((tag: any) => {
     const filteredProjects = allProjects.filter((project: any) =>
-      project.frontmatter.tags.includes(tag)
+      project.data.tags.includes(tag)
     );
     return {
       params: { tag },
@@ -34,8 +33,11 @@ const { projects } = Astro.props as { projects: any[] };
       {
         projects.map((project) => (
           <li>
-            <a href={project.url} class="font-semibold hover:underline">
-              {project.frontmatter.title}
+            <a
+              href={`../projects/${project.slug}/`}
+              class="font-semibold hover:underline"
+            >
+              {project.data.title}
             </a>
           </li>
         ))

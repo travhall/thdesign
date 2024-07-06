@@ -1,5 +1,7 @@
 ---
-const allProjects = await Astro.glob("../pages/projects/*.mdx");
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("projects");
 import Button from "../components/Button.astro";
 ---
 
@@ -9,21 +11,21 @@ import Button from "../components/Button.astro";
       allProjects.map((project, index) => (
         <li
           class="project-item pt-8 pb-4 flex flex-col lg:flex-row lg:items-center lg:justify-between border-b border-b-stone-950 dark:border-b-stone-50 last-of-type:border-0 lg:hover:font-extrabold transition-all"
-          id={project.frontmatter.title}
+          id={project.data.title}
           data-index={index}
         >
           <a
-            href={project.url}
+            href={`projects/${project.slug}/`}
             class="project-label flex flex-row items-baseline"
           >
             <span class="text-sm">{"0" + (index + 1)}</span>
             <span class="font-heading text-3xl xl:text-5xl text-balance p-2 hover:tracking-wide transition-all">
-              {project.frontmatter.title}
+              {project.data.title}
             </span>
           </a>
-          {project.frontmatter.tags && (
+          {project.data.tags && (
             <span class="project-types ms-2 p-4 flex flex-row flex-wrap gap-2">
-              {project.frontmatter.tags.map((tag: any) => (
+              {project.data.tags.map((tag: any) => (
                 <form action={`tags/${tag}`}>
                   <Button variant="tag" size="sm" type="submit">
                     {tag}
