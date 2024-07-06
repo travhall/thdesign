@@ -34,7 +34,7 @@ const { projects } = Astro.props as { projects: any[] };
         projects.map((project) => (
           <li>
             <a
-              href={`projects/${project.slug}/`}
+              href={`/projects/${project.slug}/`}
               class="font-semibold hover:underline"
             >
               {project.data.title}
