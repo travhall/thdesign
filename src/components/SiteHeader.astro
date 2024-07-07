@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import ThemeIcon from "./ThemeIcon.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div class="skip-link sr-only focus-within:not-sr-only">
@@ -22,6 +22,19 @@ import ThemeIcon from "./ThemeIcon.astro";
     <span class="text-sm py-1 hidden lg:inline-block">travishall.design</span>
   </a>
   <div class="header-menu p-6 lg:p-8 xl:p-12">
-    <ThemeIcon />
+    <button
+      class="hidden dark:block"
+      onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'light' }))"
+    >
+      <span class="sr-only">Light Mode</span>
+      <Icon class="fill-stone-50 h-6 w-6" name="uil:moonset" />
+    </button>
+    <button
+      class="block dark:hidden"
+      onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'dark' }))"
+    >
+      <span class="sr-only">Dark Mode</span>
+      <Icon class="fill-stone-900 h-6 w-6" name="uil:sunset" />
+    </button>
   </div>
 </header>

@@ -13,7 +13,7 @@ const projectsCollection = defineCollection({
         roles: z.array(z.string()),
         tags: z.array(z.string()),
         tech: z.array(z.string()),
-        status: z.array(z.string()),
+        status: z.string(),
         isPublic: z.boolean()
     })
 });

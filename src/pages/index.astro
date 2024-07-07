@@ -1,8 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Image from "astro/components/Image.astro";
 import ProjectNav from "../components/ProjectNav.astro";
-import aboutImage from "../assets/aboutImage.png";
+import AboutComponent from "../components/AboutComponent.astro";
 const headline = "Selected work by Product Designer & Developer, Travis Hall.";
 ---
 
@@ -13,20 +12,5 @@ const headline = "Selected work by Product Designer & Developer, Travis Hall.";
     {headline}
   </h1>
   <ProjectNav />
-  <section class="p-6 lg:p-12 xl:p-16 my-8" id="about-section">
-    <Image
-      src={aboutImage}
-      alt="This is me with my daughter when she was a baby. It's honestly the best I'll ever look, so why update it?"
-      loading="lazy"
-      class="object-cover rounded-full mb-12 w-56 h-56 mx-auto md:mx-8"
-    />
-    <p
-      class="max-w-[48ch] text-balance first-letter:text-5xl first-letter:font-bold text-teal-950 dark:text-white first-letter:mr-1 first-letter:float-left first-line:text-lg first-line:tracking-wide"
-    >
-      Hello, I&rsquo;m Travis and I like making stuff for the web. In other
-      words, I specialize in crafting accessible, human-centered, digital
-      experiences. However, something tells me you're not here to read a bunch
-      of industry jargon, are you?
-    </p>
-  </section>
+  <AboutComponent />
 </Layout>
