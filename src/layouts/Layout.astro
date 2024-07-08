@@ -1,9 +1,7 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import Themes from "astro-themes";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
-
 interface Props {
   title: string;
 }
@@ -20,15 +18,14 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/thdesign/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
     <Themes />
   </head>
   <body class="bg-zinc-50 dark:bg-zinc-900 text-teal-950 dark:text-white">
     <SiteHeader />
-    <main id="main" transition:name="content">
+    <main id="swup">
       <slot />
     </main>
-    <SiteFooter />
+    <SiteFooter class="transition-fade" />
     <style is:global>
       @font-face {
         font-family: "Nohemi";
@@ -48,6 +45,31 @@ const { title } = Astro.props;
         min-height: 100dvh;
         scroll-behavior: smooth;
       }
+
+      html.is-changing .transition-fade {
+        transition: 0.4s;
+        opacity: 1;
+      }
+      html.is-animating .transition-fade {
+        opacity: 0;
+      }
+
+      body {
+        --swup-overlay-theme-color: #063b3a;
+        --swup-overlay-theme-duration: 0.4s;
+        --swup-overlay-theme-delay: 0.2s;
+        --swup-overlay-theme-scale: 1.2;
+        --swup-overlay-theme-skew: 3deg;
+      }
+
+      /* .swup-transition-overlay {
+        background: linear-gradient(
+          45deg,
+          rgb(131, 58, 180),
+          rgb(253, 29, 29),
+          rgb(252, 176, 69)
+        );
+      } */
     </style>
   </body>
 </html>

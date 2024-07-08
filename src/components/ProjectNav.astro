@@ -1,8 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-
 const allProjects = await getCollection("projects");
-import Button from "../components/Button.astro";
 ---
 
 <nav class="project-navigation p-2 md:p-6 lg:p-12 xl:p-16 my-8">
@@ -26,11 +24,12 @@ import Button from "../components/Button.astro";
           {project.data.tags && (
             <span class="project-types ms-2 p-4 flex flex-row flex-wrap gap-2">
               {project.data.tags.map((tag: any) => (
-                <form action={`/thdesign/tags/${tag}`}>
-                  <Button variant="tag" size="sm" type="submit">
-                    {tag}
-                  </Button>
-                </form>
+                <a
+                  href={`/thdesign/tags/${tag}`}
+                  class="text-xs p-2 text-amber-950 dark:text-white bg-white/5 dark:bg-teal-500/5 hover:bg-amber-500/10 dark:hover:bg-white/20 border-amber-950 dark:border-white border rounded-full text-nowrap inline-block hover:scale-105 transition-all"
+                >
+                  {tag}
+                </a>
               ))}
             </span>
           )}

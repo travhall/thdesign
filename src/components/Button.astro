@@ -5,7 +5,7 @@ interface Props extends HTMLAttributes<"button"> {
   type?: "button" | "submit" | "reset";
   size?: "sm" | "md" | "lg";
   classes?: string;
-  variant?: "primary" | "secondary" | "outline" | "tag";
+  variant?: "primary" | "secondary" | "outline";
 }
 
 const {
@@ -29,8 +29,6 @@ const {
       "text-white dark:text-amber-950 bg-amber-800 dark:bg-amber-50 hover:bg-amber-600 dark:hover:bg-amber-300",
     variant === "outline" &&
       "text-teal-800 dark:text-white bg-teal-50/00 dark:bg-teal-800/00 hover:bg-teal-50/50 dark:hover:bg-teal-800/50 border-2 border-teal-800 dark:border-white",
-    variant === "tag" &&
-      "text-xs p-2 text-amber-950 dark:text-white bg-white/5 dark:bg-teal-500/5 hover:bg-amber-500/10 dark:hover:bg-white/20 border-amber-950 dark:border-white border rounded-full text-nowrap inline-block hover:scale-105 transition-all",
     size === "sm" && "text-xs py-2 px-4",
     size === "md" && "text-base py-3 px-6",
     size === "lg" && "text-xl py-4 px-8",

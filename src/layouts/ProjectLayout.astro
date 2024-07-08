@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/Button.astro";
 const { frontmatter } = Astro.props;
 ---
 
@@ -11,15 +10,15 @@ const { frontmatter } = Astro.props;
     {frontmatter.title}
   </h1>
   <section class="about-me p-6 lg:p-12 xl:p-16 my-8">
-    <!-- <p class="mb-4">Written by {frontmatter.author}</p> -->
     <ul class="flex flex-row flex-wrap gap-1 mb-8">
       {
         frontmatter.tags.map((tag: any) => (
-          <form action={`/thdesign/tags/${tag}`}>
-            <Button variant="tag" size="sm" type="submit">
-              {tag}
-            </Button>
-          </form>
+          <a
+            href={`/thdesign/tags/${tag}`}
+            class="text-xs p-2 text-amber-950 dark:text-white bg-white/5 dark:bg-teal-500/5 hover:bg-amber-500/10 dark:hover:bg-white/20 border-amber-950 dark:border-white border rounded-full text-nowrap inline-block hover:scale-105 transition-all"
+          >
+            {tag}
+          </a>
         ))
       }
     </ul>
