@@ -5,7 +5,7 @@ const { frontmatter } = Astro.props;
 
 <Layout title={frontmatter.title}>
   <h1
-    class="font-heading text-teal-950 dark:text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-6 lg:p-12 xl:p-16 my-8"
+    class="font-heading text-zinc-950 dark:text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-6 lg:p-12 xl:p-16 my-8"
   >
     {frontmatter.title}
   </h1>
@@ -15,7 +15,7 @@ const { frontmatter } = Astro.props;
         frontmatter.tags.map((tag: any) => (
           <a
             href={`/thdesign/tags/${tag}`}
-            class="text-xs p-2 text-amber-950 dark:text-white bg-white/5 dark:bg-teal-500/5 hover:bg-amber-500/10 dark:hover:bg-white/20 border-amber-950 dark:border-white border rounded-full text-nowrap inline-block hover:scale-105 transition-all"
+            class="text-xs p-2 text-teal-950 dark:text-amber-50 bg-white/5 dark:bg-teal-500/5 hover:bg-teal-500/10 dark:hover:bg-amber-500/20 border-teal-950 dark:border-amber-50 border rounded-full text-nowrap inline-block transition-all"
           >
             {tag}
           </a>
