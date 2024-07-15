@@ -1,39 +1,38 @@
 ---
 import { getCollection } from "astro:content";
 const allProjects = await getCollection("projects");
-import { Icon } from "astro-icon/components";
 ---
 
-<nav class="project-navigation p-2 md:p-6 lg:p-12 xl:p-16 my-8">
+<nav class="project-navigation p-6 lg:p-12 xl:p-16 my-8 lg:mb-16">
   <ul class="project-list">
     {
       allProjects.map((project, index) => (
         <li
-          class="project-item pt-8 pb-4 flex flex-col lg:flex-row lg:items-center lg:justify-between border-b border-b-teal-950 dark:border-b-zinc-50 last-of-type:border-0 transition-all"
+          class="project-item pt-8 pb-4 flex flex-col-reverse md:flex-row lg:items-center md:justify-between border-b border-b-teal-950 dark:border-b-zinc-50 last-of-type:border-0 transition-all"
           id={project.data.title}
           data-index={index}
         >
           <a
             href={`/thdesign/projects/${project.slug}/`}
-            class="project-label flex flex-row items-baseline"
+            class="project-label flex flex-col md:flex-row items-baseline"
           >
-            <span class="text-sm">{"0" + (index + 1)}</span>
-            <span class="font-heading font-medium text-zinc-950 dark:text-white text-3xl xl:text-5xl 2xl:text-6xl text-balance p-2 lg:hover:font-extrabold transition-all">
+            <span class="text-sm font-heading font-extrabold w-6">
+              {"0" + (index + 1)}
+            </span>
+            <span class="relative flex-shrink-0 font-heading font-medium text-4xl xl:text-6xl text-balance p-2 transition-all">
               {project.data.title}
             </span>
-            <span class="arrow block relative overflow-hidden h-8 w-8 lg:h-12 lg:w-12 -ml-2 lg:-ml-4">
-              <Icon
-                class="icon text-4xl lg:text-6xl p-0 m-0 -left-12 absolute"
-                name="uil:angle-right"
-              />
+            <span class="view-label flex-shrink-0 md:m-4 font-medium text-sm lg:text-base text-teal-700 dark:text-amber-500 opacity-0 transition-opacity delay-100 after:content-['->']">
+              View Project
             </span>
           </a>
-          {project.data.tags && (
-            <span class="project-types ms-2 p-4 flex flex-row flex-wrap gap-2">
+
+          {project.data.tags.length > 0 && (
+            <span class="project-types ms-2 p-4 hidden lg:flex flex-row flex-wrap gap-2">
               {project.data.tags.map((tag: any) => (
                 <a
                   href={`/thdesign/tags/${tag}`}
-                  class="text-xs opacity-0 p-2 text-teal-950 dark:text-amber-50 bg-white/5 dark:bg-teal-500/5 hover:bg-teal-500/10 dark:hover:bg-amber-500/20 border-teal-950 dark:border-amber-50 border rounded-full text-nowrap inline-block transition-all"
+                  class="text-xs opacity-0 p-2 text-teal-950 dark:text-amber-50 bg-white/5 dark:bg-teal-500/5 hover:bg-teal-500/10 dark:hover:bg-amber-500/20 border-teal-950 dark:border-amber-50 border rounded-xl text-nowrap inline-block transition-all"
                   id={`tag-${tag}`}
                 >
                   {tag}
@@ -50,14 +49,117 @@ import { Icon } from "astro-icon/components";
 <style>
   .project-list:hover .project-item:not(:hover) {
     opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .project-label > .font-heading {
+    background-size: 200% 100%;
+    background-position: 100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .project-label:hover > .font-heading {
+    /* animation: flicker 1.5s infinite alternate;
+    animation-delay: 0.5s; */
+    background-position: 0;
+    font-weight: 900;
+  }
+
+  .project-label:hover .view-label {
+    opacity: 1;
+    font-weight: 800;
+  }
+
+  html[data-theme="light"] {
+    .project-label > .font-heading {
+      background-image: linear-gradient(
+        to right,
+        #18181b,
+        #18181b 50%,
+        #6f6f6f 50%
+      );
+    }
+  }
+
+  html[data-theme="dark"] {
+    .project-label > .font-heading {
+      background-image: linear-gradient(
+        to right,
+        #fafafa,
+        #fafafa 50%,
+        #6f6f6f 50%
+      );
+    }
   }
 
   .project-item:hover .project-types a {
     opacity: 1;
-    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.75s;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.95s;
   }
-  .project-label:hover .arrow > .icon {
-    left: 0;
-    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+
+  /* @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #0fa,
+        0 0 80px #0fa,
+        0 0 90px #0fa,
+        0 0 100px #0fa,
+        0 0 150px #0fa;
+    }
+
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  } */
+
+  @keyframes flicker {
+    0%,
+    19.9%,
+    22%,
+    62.9%,
+    64%,
+    64.9%,
+    70%,
+    100% {
+      opacity: 0.99;
+      text-shadow:
+        -1px -1px 0 rgba(255, 255, 255, 0.4),
+        1px -1px 0 rgba(255, 255, 255, 0.4),
+        -1px 1px 0 rgba(255, 255, 255, 0.4),
+        1px 1px 0 rgba(255, 255, 255, 0.4),
+        0 -2px 8px,
+        //default color
+        0 0 2px,
+        //default color
+        0 0 5px #ff7e00,
+        0 0 15px #ff4444,
+        0 0 2px #ff7e00,
+        0 2px 3px #000;
+    }
+    20%,
+    21.9%,
+    63%,
+    63.9%,
+    65%,
+    69.9% {
+      opacity: 0.4;
+      text-shadow: none;
+    }
   }
 </style>

@@ -4,42 +4,39 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="site-footer p-4 md:p-6 lg:p-12 xl:p-16 mt-8 flex flex-col items-start md:items-center md:flex-row md:justify-between transition-fade"
+  class="site-footer p-6 md:p-8 lg:p-12 xl:p-16 mt-8 flex flex-col items-start md:items-center md:flex-row md:justify-between transition-main"
   id="footer"
 >
-  <ul
-    class="footer-utilities flex flex-col md:flex-row md:flex-wrap gap-6 xl:gap-8 md:items-center"
-  >
-    <li class="footer-utility-item p-2">
+  <ul class="footer-utilities flex flex-row flex-wrap gap-4 md:items-center">
+    <li class="footer-utility-item">
       <a
         href="https://www.linkedin.com/in/travhall/"
-        class="footer-utility-links text-zinc-950 dark:text-white inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
       >
         <Icon name="uil:linkedin" class="h-5 w-5" />
-        LinkedIn
+        <span class="sr-only">LinkedIn</span>
       </a>
     </li>
-    <li class="footer-utility-item p-2">
+    <li class="footer-utility-item">
       <a
         href="https://www.instagram.com/trebor_hass/"
-        class="footer-utility-links text-zinc-950 dark:text-white inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
       >
         <Icon name="uil:instagram" class="h-5 w-5" />
-        Instagram
+        <span class="sr-only">Instagram</span>
       </a>
     </li>
-    <li class="footer-utility-item p-2">
+    <li class="footer-utility-item">
       <a
         href="mailto:hello@travishall.design"
-        class="footer-utility-links text-zinc-950 dark:text-white inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
+        class="footer-utility-links inline-flex flex-row gap-1 items-center text-sm lowercase transition-all hover:underline hover:scale-105 hover:font-bold underline-offset-2"
       >
         <Icon name="uil:mailbox" class="h-5 w-5" />
         hello@travishall.design
       </a>
     </li>
   </ul>
-  <small
-    class="text-xs text-zinc-950 dark:text-white mx-2 my-8 lg:my-0 md:self-end"
+  <small class="text-xs mx-2 my-8 lg:my-0 md:self-end"
     >&copy;{currentYear} Travis Hall Design, all rights reserved</small
   >
 </footer>

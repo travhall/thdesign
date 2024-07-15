@@ -20,13 +20,14 @@ const { title } = Astro.props;
     <title>{title}</title>
     <Themes />
   </head>
-  <body class="bg-zinc-50 dark:bg-zinc-900 text-zinc-950 dark:text-white">
+  <body class="text-zinc-950 dark:text-white bg-zinc-50 dark:bg-zinc-900">
     <SiteHeader />
-    <main id="swup">
+    <main id="swup" class="transition-main">
       <slot />
     </main>
-    <SiteFooter class="transition-fade" />
-    <style is:global>
+    <SiteFooter />
+
+    <style is:global lang="scss">
       @font-face {
         font-family: "Nohemi";
         font-style: normal;
@@ -46,30 +47,99 @@ const { title } = Astro.props;
         scroll-behavior: smooth;
       }
 
-      html.is-changing .transition-fade {
-        transition: 0.4s;
+      // body {
+      //   background: linear-gradient(-45deg, #9de2f5, #e8eded, #d3eaf2, #f7fefc);
+      //   background-size: 400% 400%;
+      //   animation: gradient 15s ease infinite;
+      // }
+
+      // @keyframes gradient {
+      //   0% {
+      //     background-position: 0% 50%;
+      //   }
+      //   50% {
+      //     background-position: 100% 50%;
+      //   }
+      //   100% {
+      //     background-position: 0% 50%;
+      //   }
+      // }
+
+      // html.is-changing .transition-fade {
+      //   transition: all 0.4s;
+      //   opacity: 1;
+      //   translate: 0 20px;
+      // }
+      // html.is-animating .transition-fade {
+      //   opacity: 0;
+      //   translate: 0 20px;
+      // }
+
+      html.is-changing .transition-main {
+        transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
         opacity: 1;
+        transform: translateY(0);
       }
-      html.is-animating .transition-fade {
+      html.is-animating .transition-main {
         opacity: 0;
+        transform: translateY(8vh);
       }
 
-      body {
-        --swup-overlay-theme-color: #063b3a;
-        --swup-overlay-theme-duration: 0.4s;
-        --swup-overlay-theme-delay: 0.2s;
-        --swup-overlay-theme-scale: 1.2;
-        --swup-overlay-theme-skew: 3deg;
+      html.is-leaving .transition-main {
+        opacity: 0;
+        transform: translateY(-8vh);
       }
 
-      /* .swup-transition-overlay {
-        background: linear-gradient(
-          45deg,
-          rgb(131, 58, 180),
-          rgb(253, 29, 29),
-          rgb(252, 176, 69)
-        );
-      } */
+      // :root {
+      //   --swup-overlay-theme-duration: 0.2s;
+      //   --swup-overlay-theme-delay: 0.4s;
+      //   --swup-overlay-theme-scale: 1.2;
+      //   --swup-overlay-theme-skew: 1deg;
+      // }
+
+      html[data-theme="light"] {
+        ::selection {
+          color: #f0fdfa;
+          background-color: #042f2e;
+        }
+        // .swup-transition-overlay {
+        //   background-image: linear-gradient(
+        //     45deg,
+        //     hsl(175deg 91% 8%) 0%,
+        //     hsl(175deg 89% 8%) 11%,
+        //     hsl(176deg 88% 8%) 22%,
+        //     hsl(176deg 87% 8%) 33%,
+        //     hsl(176deg 86% 7%) 44%,
+        //     hsl(176deg 85% 7%) 55%,
+        //     hsl(176deg 85% 7%) 67%,
+        //     hsl(176deg 87% 6%) 78%,
+        //     hsl(176deg 92% 6%) 89%,
+        //     hsl(176deg 100% 5%) 100%
+        //   );
+        // }
+      }
+
+      html[data-theme="dark"] {
+        ::selection {
+          color: #042f2e;
+          background-color: #f0fdfa;
+        }
+        // .swup-transition-overlay {
+        //   background-image: linear-gradient(
+        //     45deg,
+        //     hsl(170deg 100% 99%) 0%,
+        //     hsl(170deg 83% 99%) 11%,
+        //     hsl(170deg 68% 99%) 22%,
+        //     hsl(170deg 54% 99%) 33%,
+        //     hsl(170deg 43% 98%) 44%,
+        //     hsl(170deg 32% 98%) 55%,
+        //     hsl(170deg 23% 98%) 67%,
+        //     hsl(170deg 15% 98%) 78%,
+        //     hsl(170deg 7% 98%) 89%,
+        //     hsl(0deg 0% 98%) 100%
+        //   );
+        // }
+      }
     </style>
   </body>
 </html>

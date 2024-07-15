@@ -4,36 +4,55 @@ import { Icon } from "astro-icon/components";
 
 <div class="skip-link sr-only focus-within:not-sr-only">
   <span
-    class="text-sm inline-flex gap-1 p-6 border border-t-0 border-teal-950 dark:border-white text-zinc-950 dark:text-white rounded-br-xl rounded-bl-xl transition-all"
+    class="text-sm inline-flex gap-1 p-6 border border-t-0 border-teal-950 dark:border-white rounded-br-xl rounded-bl-xl transition-all"
   >
     Skip to <a href="#main">content</a> or <a href="#footer">footer</a>
   </span>
 </div>
-<header class="site-header w-full flex flex-row items-center justify-between">
+
+<header
+  class="site-header p-6 lg:p-8 xl:p-12 w-full flex flex-row items-center justify-between"
+>
   <a
     href="/thdesign"
-    class="mx-6 lg:mx-12 xl:mx-16 my-8 inline-flex flex-row gap-2 items-center font-semibold hover:font-black text-zinc-950 dark:text-white transition-all"
+    class="inline-flex flex-row gap-2 items-center font-semibold hover:font-black transition-all"
   >
     <Icon
       name="logo"
-      class="w-16 md:w-12 lg:w-8 h-auto fill-teal-950 dark:fill-white transition-all"
+      class="w-16 md:w-12 lg:w-8 h-auto text-zinc-900 dark:text-white transition-all"
     />
-    <span class="text-sm py-1 hidden lg:inline-block">travishall.design</span>
+    <span
+      class="text-sm py-1 leading-3 hidden lg:inline-flex flex-col text-zinc-900 dark:text-white transition-all"
+      >travishall
+      <span>.design</span>
+    </span>
   </a>
-  <div class="header-menu p-6 lg:p-8 xl:p-12">
-    <button
-      class="hidden dark:block"
-      onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'light' }))"
-    >
-      <span class="sr-only">Light Mode</span>
-      <Icon class="fill-zinc-50 h-6 w-6" name="uil:moonset" />
-    </button>
-    <button
-      class="block dark:hidden"
-      onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'dark' }))"
-    >
-      <span class="sr-only">Dark Mode</span>
-      <Icon class="fill-zinc-950 h-6 w-6" name="uil:sunset" />
-    </button>
+  <div class="header-menu">
+    <nav class="flex flex-row gap-2 md:gap-4">
+      <a
+        href="/thdesign"
+        class="p-2 lg:p-4 hover:font-bold hover:scale-105 transition-all"
+        >Work</a
+      >
+      <a
+        href="/thdesign/about"
+        class="p-2 lg:p-4 hover:font-bold hover:scale-105 transition-all"
+        >About</a
+      >
+      <button
+        class="hidden dark:block"
+        onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'light' }))"
+      >
+        <span class="sr-only">Light Mode</span>
+        <Icon class="fill-zinc-50 h-6 w-6" name="uil:moonset" />
+      </button>
+      <button
+        class="block dark:hidden"
+        onclick="document.dispatchEvent(new CustomEvent('set-theme', { detail: 'dark' }))"
+      >
+        <span class="sr-only">Dark Mode</span>
+        <Icon class="fill-zinc-950 h-6 w-6" name="uil:sunset" />
+      </button>
+    </nav>
   </div>
 </header>

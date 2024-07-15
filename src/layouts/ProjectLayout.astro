@@ -4,24 +4,40 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <h1
-    class="font-heading text-zinc-950 dark:text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance p-6 lg:p-12 xl:p-16 my-8"
-  >
-    {frontmatter.title}
-  </h1>
-  <section class="about-me p-6 lg:p-12 xl:p-16 my-8">
-    <ul class="flex flex-row flex-wrap gap-1 mb-8">
-      {
-        frontmatter.tags.map((tag: any) => (
+  <section class="hero p-6 lg:p-12 xl:p-16">
+    <h1
+      class="font-heading font-medium text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-9xl text-balance my-8"
+    >
+      {frontmatter.title}
+    </h1>
+    <p class="pb-4 my-8">
+      {frontmatter.description}
+    </p>
+    {
+      frontmatter.roles.length > 0 && (
+        <div class="flex flex-row flex-wrap gap-2 my-8">
+          {frontmatter.roles.map((role: any) => (
+            <span class="text-base after:content-['/'] after:ml-2 last-of-type:after:content-none">
+              {role}
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </section>
+  <slot />
+  {
+    frontmatter.tags.length > 0 && (
+      <div class="flex flex-row flex-wrap gap-2 px-6 lg:px-12 xl:px-16 mb-8">
+        {frontmatter.tags.map((tag: any) => (
           <a
             href={`/thdesign/tags/${tag}`}
-            class="text-xs p-2 text-teal-950 dark:text-amber-50 bg-white/5 dark:bg-teal-500/5 hover:bg-teal-500/10 dark:hover:bg-amber-500/20 border-teal-950 dark:border-amber-50 border rounded-full text-nowrap inline-block transition-all"
+            class="text-xs p-2 text-teal-950 dark:text-amber-50 bg-white/5 dark:bg-teal-500/5 hover:bg-teal-500/10 dark:hover:bg-amber-500/20 border-teal-950 dark:border-amber-50 border rounded-xl text-nowrap inline-block transition-all"
           >
             {tag}
           </a>
-        ))
-      }
-    </ul>
-    <slot />
-  </section>
+        ))}
+      </div>
+    )
+  }
 </Layout>

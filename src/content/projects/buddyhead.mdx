@@ -1,0 +1,25 @@
+---
+title: Buddyhead
+pubDate: 2022-07-15
+author: Travis Hall
+description: "Vestibulum id ligula porta felis euismod semper."
+image:
+    url: "https://docs.astro.build/assets/rays.webp"
+    alt: "The Astro logo on a dark background with rainbow rays."
+roles: ["Designer"]
+tags: ["Site Design", "Front End Development"]
+tech: ["Nextjs", "React", "Tailwindcss", "Figma"]
+status: "Work in Progress"
+isPublic: true
+---
+import Picture from "astro:assets"
+import Image from "astro/components/Image.astro";
+import image01 from "../../assets/projects/placeholder.png";
+
+{/* ![alt](../../assets/aboutImage.png) */}
+
+{/* <Image src={image01} alt="" inferSize /> */}
+
+<Image src={frontmatter.image.url} alt={frontmatter.image.alt} inferSize loading="lazy" class="mb-8 w-full transition-main" />
+
+<p class="mb-4 max-w-[64ch] text-inherit">Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
