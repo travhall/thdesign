@@ -59,6 +59,7 @@ const allProjects = await getCollection("projects");
     padding: 5px 0;
     position: relative;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s ease-in-out;
   }
@@ -128,7 +129,7 @@ const allProjects = await getCollection("projects");
     }
   } */
 
-  @keyframes flicker {
+  /* @keyframes flicker {
     0%,
     19.9%,
     22%,
@@ -144,9 +145,7 @@ const allProjects = await getCollection("projects");
         -1px 1px 0 rgba(255, 255, 255, 0.4),
         1px 1px 0 rgba(255, 255, 255, 0.4),
         0 -2px 8px,
-        //default color
         0 0 2px,
-        //default color
         0 0 5px #ff7e00,
         0 0 15px #ff4444,
         0 0 2px #ff7e00,
@@ -161,5 +160,5 @@ const allProjects = await getCollection("projects");
       opacity: 0.4;
       text-shadow: none;
     }
-  }
+  } */
 </style>

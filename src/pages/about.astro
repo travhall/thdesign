@@ -10,35 +10,37 @@ const title = "Hello, I'm Travis and I make stuff for the web.";
 <Layout title={title}>
   <section class="w-full mb-24" id="about">
     <div
-      class="about-container flex flex-col md:flex-row items-start justify-stretch xl:gap-12 px-6 lg:px-8 xl:px-12"
+      class="about-container flex flex-col md:flex-row items-start justify-between xl:justify-stretch xl:gap-12 px-6 lg:px-8 xl:px-12"
     >
       <Image
         src={profileImageLight}
         alt="Travis at Bodega Bay many, many years ago 👴🏻"
-        loading="lazy"
+        loading="eager"
         format="avif"
         class="object-cover border border-zinc-400 w-full md:w-5/12 max-w-2xl aspect-video md:aspect-auto h-auto mx-auto lg:mx-0 rounded-sm shadow-2xl shadow-zinc-300 block dark:hidden transition-main"
       />
       <Image
         src={profileImageDark}
         alt="Travis at Hanging Lake a few years ago ⛰"
-        loading="lazy"
+        loading="eager"
         format="avif"
-        class="object-cover border border-zinc-600 w-full md:w-5/12 max-w-2xl aspect-video md:aspect-auto h-auto mx-auto lg:mx-0 rounded-sm shadow-2xl shadow-zinc-800 hidden dark:block opacity-85 transition-main"
+        class="object-cover border border-zinc-600 w-full md:w-5/12 max-w-2xl aspect-video md:aspect-auto h-auto mx-auto lg:mx-0 rounded-sm shadow-2xl shadow-zinc-800 hidden dark:block transition-main"
       />
-      <div class="right-col flex-grow self-stretch place-content-center">
+      <div class="right-col justify-around self-stretch place-content-center">
         <h1
-          class="font-heading font-medium text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-balance p-8 pb-4 lg:px-12 xl:px-16 flex flex-col"
+          class="font-heading font-medium text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-balance p-8 pb-4 lg:px-12 xl:px-16 inline-flex flex-col"
         >
-          Hello, <span class="inline-block">I&rsquo;m Travis.</span>
+          Hello, <span>I&rsquo;m Travis.</span>
         </h1>
         <p class="max-w-[64ch] px-12 py-4 text-sm lg:text-base text-balance">
           I specialize in crafting accessible, human-centered, digital
-          experiences. However, something tells me you didn't come here to read
-          a bunch of industry jargon, now did you? Since you're already here,
-          you can learn more about my process and practice below or check out my
-          work.
+          experiences. But something tells me you didn't come here to read a
+          bunch of industry jargon, did you?
         </p>
+        <!-- <p class="max-w-[64ch] px-12 pb-4 text-sm lg:text-base text-balance">
+          Since you're already here, you can learn more about my process and
+          practice below or check out my work.
+        </p> -->
       </div>
     </div>
   </section>
