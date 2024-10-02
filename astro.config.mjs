@@ -8,7 +8,9 @@ import swup from "@swup/astro";
 export default defineConfig({
   integrations: [
     tailwind(),
-    icon(),
+    icon({
+      iconDir: "src/assets/icons",
+    }),
     mdx(),
     // swup({ theme: ["overlay", { direction: "to-top" }] }),
     swup(),
